@@ -1,0 +1,13 @@
+
+<p>
+  <strong>Meal:</strong>
+  <%= @menu_item.meal %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @menu_item.cost %>
+</p>
+
+<%= link_to 'Edit', edit_menu_item_path(@menu_item) %> |
+<%= link_to 'Back', menu_items_path %>

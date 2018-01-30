@@ -1,0 +1,25 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th>Meal</th>
+    <th>Quantity</th>
+    <th>Cost</th>
+    <th colspan="4"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @order_items.each do |order_item| %>
+    <tr>
+      <td><%= order_item.meal %></td>
+      <td><%= order_item.quantity %></td>
+      <td><%= order_item.cost %></td>
+      <td><%= link_to 'Remove', {controller: :order_items, action: :destroy, id: order_item.id}, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<div class="well">Order Sum: <%= @order_items.inject(0) { |sum, order_item| sum + order_item.cost }%></div>
+
+<%= link_to 'Back', menu_items_path %>
