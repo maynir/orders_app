@@ -26,12 +26,12 @@
 
   <p class="navbar navbar-default">
   <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>.
+      Logged in as <strong><%= current_user.email %></strong>|
       <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
       <span class="glyphicon glyphicon-user"></span>|
       <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
       <span class="glyphicon glyphicon-log-out"></span>|
-      <%= link_to "My Order",{controller: :orders, action: :show, id: current_order.id}, :class => 'navbar-link'%>
+      <%= link_to "My Order",{action: :show, controller: :'/orders', id: current_order.id}, :class => 'navbar-link'%>
       <span class="glyphicon glyphicon-shopping-cart"></span>
   <% else %>
       <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |

@@ -4,7 +4,8 @@
     <th>Meal</th>
     <th>Quantity</th>
     <th>Cost</th>
-    <th colspan="4"></th>
+    <th>Sum</th>
+    <th colspan="1"></th>
   </tr>
   </thead>
 
@@ -14,12 +15,13 @@
       <td><%= order_item.meal %></td>
       <td><%= order_item.quantity %></td>
       <td><%= order_item.cost %></td>
+      <td><%= order_item.quantity * order_item.cost %></td>
       <td><%= link_to 'Remove', {controller: :order_items, action: :destroy, id: order_item.id}, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
     </tr>
   <% end %>
   </tbody>
 </table>
 
-<div class="well">Order Sum: <%= @order_items.inject(0) { |sum, order_item| sum + order_item.cost }%></div>
+<div class="well">Order Sum: <%= @order_items.inject(0) { |sum, order_item| sum + order_item.cost * order_item.quantity}%></div>
 
 <%= link_to 'Back', menu_items_path %>

@@ -5,8 +5,7 @@
     <tr>
       <th>Meal</th>
       <th>Cost</th>
-      <th>Quantity</th>
-      <th colspan="5"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -15,8 +14,8 @@
       <tr>
         <td><%= menu_item.meal %></td>
         <td><%= menu_item.cost %>₪</td>
-        <td><%= number_field_tag 'quantity', 1 %></td>
-        <td><%= link_to 'Add', {controller: :order_items, action: :create, menu_item_id: menu_item.id},class: 'btn btn-success' %></td>
+        <td><%= link_to 'Add', {controller: :order_items, action: :new, menu_item_id: menu_item.id},class: 'btn btn-success' %></td>
+        <!--<td><%= link_to 'Add', {controller: :order_items, action: :create, menu_item_id: menu_item.id},class: 'btn btn-success' %></td>-->
         <td><%= link_to 'Show', menu_item, class: 'btn btn-primary' %></td>
         <td><%= link_to 'Edit', edit_menu_item_path(menu_item), class: 'btn btn-info' %></td>
         <td><%= link_to 'Destroy', menu_item, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
